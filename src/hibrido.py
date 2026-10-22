@@ -115,3 +115,22 @@ def simular_hibrido(P, H=1.0, modo="evento", dt=0.25, lazo=True, seed=0,
         "t_pedido1": pedidos[0][0] if pedidos else float("nan"),
         "t_llegada1": llegadas[0][0] if llegadas else float("nan"),
     }
+
+
+def rho_fina(R, P, dt=0.01):
+    """rho_pred(t) = a*U(t)/(c(t)*mu) remuestreada en una malla fina (dt = 0.01 días).
+
+    Medida continua de la congestión del SD que no depende de que el DES se consulte
+    solo en los intercambios ni del paso del integrador: U se interpola linealmente
+    entre los nodos de la trayectoria y c(t) es constante a trozos (el servidor nuevo
+    cuenta desde su instante de llegada)."""
+    t = np.append(np.arange(0.0, P.T, dt), P.T)
+    U = np.interp(t, R["t"], R["U"])
+    idx = np.searchsorted(R["c_t"], t, side="right") - 1
+    return t, P.a * U / (R["c_v"][idx] * P.mu)
+
+
+def exposicion(R, P, dt=0.01):
+    """Resumen de congestión: (rho_pred máx, días con rho_pred > theta, días con rho_pred >= 1)."""
+    t, rho = rho_fina(R, P, dt)
+    return rho.max(), dt * np.sum(rho[:-1] > P.theta), dt * np.sum(rho[:-1] >= 1.0)
