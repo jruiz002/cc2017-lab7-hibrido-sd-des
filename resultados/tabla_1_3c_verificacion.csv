@@ -1,0 +1,8 @@
+afirmación de la IA,verificación independiente
+U de equilibrio ≈ 19 700 (0.202(M−U) ≈ 0.003U),19703.0 exacto; la aproximación de la IA da 19707.3
+umbrales c=4: 11 200; c=6: 16 800; c=8: 22 400 > M,"{4: 11200, 6: 16800, 8: 22400} (M = 20000.0)"
+"Erlang C M/M/4 en U=12 400: Wq ≈ 0.3 s, W ≈ 0.8 s","Wq = 0.307 s, W = 0.807 s (ρ = 0.775)"
+r = 0: llenar K = 60 es prácticamente imposible,P_bloqueo exacto M/M/4/60 en U=12 400: 7.86e-08
+bache de U cerca del día 24 con W > Wok,"W>Wok en los días 23–25; U baja en [25.01, 26.00]"
+"mismos resultados con 10 semillas (U, c; W máx 0.82–1.08)",U(100) 19703.008–19703.011; c = {8}; W máx 0.820–1.078
+"nuestro híbrido, H = 1, semilla 42","U(100) = 19703.0; c = 8; W máx = 0.996; r máx = 0.0; pedidos [22.42, 32.94]"
