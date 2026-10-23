@@ -27,4 +27,6 @@ Para descartar que esto fuera suerte del DES, lo repetí con 10 semillas. U(100)
 
 Hay dos decisiones de interpretación que conviene dejar escritas en el informe. Primero, W se mide como tiempo total en el sistema (espera más servicio). Segundo, rho_pred se evalúa en cada paso del SD y no solo una vez al día.
 
-(La respuesta incluía además una imagen con las gráficas de U(t), c(t), W(t) y r(t).)
+La respuesta incluía además esta imagen con las gráficas de U(t), c(t), W(t) y r(t):
+
+![Gráficas de la IA: U(t), c(t), W y r](resultados_hibrido.png)
